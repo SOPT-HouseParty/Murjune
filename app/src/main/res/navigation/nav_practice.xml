@@ -19,6 +19,7 @@
         android:label="BFragment">
         <action
             android:id="@+id/action_BFragment_to_CFragment"
+            app:popUpTo="@id/fragment_a"
             app:destination="@id/fragment_c" />
     </fragment>
     <fragment
