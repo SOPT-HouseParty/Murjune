@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">SoptHousParty</string>
+    <string name="fragment_a_name">프래그먼트 A</string>
+    <string name="fragment_b_name">프래그먼트 B</string>
+    <string name="fragment_c_name">프래그먼트 C</string>
 </resources>
