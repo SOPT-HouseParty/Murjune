@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_practice"
     app:startDestination="@id/fragment_a">
 
@@ -19,8 +18,9 @@
         android:label="BFragment">
         <action
             android:id="@+id/action_BFragment_to_CFragment"
+            app:destination="@id/fragment_c"
             app:popUpTo="@id/fragment_a"
-            app:destination="@id/fragment_c" />
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/fragment_c"
