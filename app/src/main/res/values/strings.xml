@@ -8,7 +8,7 @@
     <string name="navigate_fail_fragment">Fail Fragment로 이동</string>
     <string name="navigate_b_fragment">B Fragment로 이동</string>
     <string name="navigate_a_fragment">A Fragment로 이동</string>
-    <string name="back_to_b_fragment">뒤로가기</string>
+    <string name="terminate_game">종료</string>
     <string name="restart">다시하기</string>
     <string name="fail">실패</string>
     <string name="question">이준원이 사는 곳은??</string>
