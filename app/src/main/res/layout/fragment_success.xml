@@ -52,7 +52,7 @@
         <Button
             android:id="@+id/btn_back"
             style="@style/NavigateButtonStyle"
-            android:text="@string/back_to_b_fragment"
+            android:text="@string/terminate_game"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_success" />
