@@ -10,12 +10,20 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.practicenav.CFragment">
+        tools:context=".presentation.practicenav.FailFragment">
+
+        <TextView
+            style="@style/NavigateButtonStyle"
+            android:layout_marginBottom="40dp"
+            android:text="@string/fail"
+            app:layout_constraintBottom_toTopOf="@id/btn_restart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btn_navigate"
+            android:id="@+id/btn_restart"
             style="@style/NavigateButtonStyle"
-            android:text="@string/fragment_c_name"
+            android:text="@string/restart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
