@@ -20,7 +20,7 @@
         <action
             android:id="@+id/action_fragment_b_to_successFragment"
             app:destination="@id/successFragment"
-            app:popUpTo="@id/fragment_b"
+            app:popUpTo="@id/fragment_a"
             app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_fragment_b_to_failFragment"

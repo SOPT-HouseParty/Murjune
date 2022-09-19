@@ -18,7 +18,7 @@ class SuccessFragment : BindingFragment<FragmentSuccessBinding>(R.layout.fragmen
 
     private fun setClickEvent() {
         binding.btnBack.setOnClickListener {
-            activity?.onBackPressed() ?: Timber.e("SuccessFragment not attached to an activity.")
+            activity?.onBackPressedDispatcher?.onBackPressed() // api 33부터 activity?.onBackPressed()가 안됨
         }
     }
 }

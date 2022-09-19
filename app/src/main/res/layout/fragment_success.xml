@@ -51,10 +51,7 @@
         <Button
             android:id="@+id/btn_back"
             style="@style/NavigateButtonStyle"
-<<<<<<< HEAD
             android:layout_marginTop="20dp"
-=======
->>>>>>> chapter3-app-navigation
             android:text="@string/terminate_game"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
