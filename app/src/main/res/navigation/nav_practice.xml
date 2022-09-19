@@ -16,14 +16,32 @@
         android:id="@+id/fragment_b"
         android:name="com.junewon.sopthousparty.presentation.practicenav.BFragment"
         android:label="BFragment">
+
         <action
-            android:id="@+id/action_BFragment_to_CFragment"
-            app:destination="@id/fragment_c"
-            app:popUpTo="@id/fragment_a"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_fragment_b_to_successFragment"
+            app:destination="@id/successFragment"
+            app:popUpTo="@id/fragment_b"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_fragment_b_to_failFragment"
+            app:destination="@id/failFragment" />
     </fragment>
     <fragment
-        android:id="@+id/fragment_c"
-        android:name="com.junewon.sopthousparty.presentation.practicenav.CFragment"
-        android:label="CFragment" />
+        android:id="@+id/successFragment"
+        android:name="com.junewon.sopthousparty.presentation.practicenav.SuccessFragment"
+        android:label="SuccessFragment" >
+        <argument
+            android:name="mokdongData"
+            app:argType="com.junewon.sopthousparty.data.model.MokdongData" />
+    </fragment>
+    <fragment
+        android:id="@+id/failFragment"
+        android:name="com.junewon.sopthousparty.presentation.practicenav.FailFragment"
+        android:label="FailFragment">
+        <action
+            android:id="@+id/action_failFragment_to_fragment_b"
+            app:destination="@id/fragment_b"
+            app:popUpTo="@id/fragment_a" />
+    </fragment>
+
 </navigation>
