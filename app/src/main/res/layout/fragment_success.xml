@@ -19,8 +19,7 @@
             android:id="@+id/iv_mokdong"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="120dp"
-            android:layout_marginTop="20dp"
+            android:layout_margin="120dp"
             app:imageUrl="@{data.imageUrl}"
             app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -32,6 +31,7 @@
             style="@style/NavigateButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:text="@{data.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,17 +41,20 @@
         <TextView
             android:id="@+id/tv_success"
             style="@style/NavigateButtonStyle"
-            android:layout_marginBottom="40dp"
+            android:layout_marginTop="40dp"
             android:text="@string/success"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
         <Button
             android:id="@+id/btn_back"
             style="@style/NavigateButtonStyle"
+<<<<<<< HEAD
+            android:layout_marginTop="20dp"
+=======
+>>>>>>> chapter3-app-navigation
             android:text="@string/terminate_game"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
