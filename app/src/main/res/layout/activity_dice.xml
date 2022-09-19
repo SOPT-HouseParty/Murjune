@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.junewon.sopthousparty.presentation.dice.DiceViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="vertical"
+        tools:context=".presentation.dice.DiceActivity">
+
+        <ImageView
+            android:id="@+id/iv_dice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@{context.getDrawable(vm.currentDice.res)}"
+            tools:src="@drawable/dice_1" />
+
+        <TextView
+            android:id="@+id/tv_roll_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@{vm.currentDice.number}"
+            android:textSize="30sp"
+            tools:text="1" />
+
+        <Button
+            android:id="@+id/btn_roll"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:onClick="@{() -> vm.setDiceNum()}"
+            android:text="@string/Roll_roll" />
+
+    </LinearLayout>
+</layout>
