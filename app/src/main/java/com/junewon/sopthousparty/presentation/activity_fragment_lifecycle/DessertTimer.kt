@@ -1,6 +1,10 @@
 package com.junewon.sopthousparty.presentation.activity_fragment_lifecycle
 
 import android.os.Handler
+import android.os.Looper
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import timber.log.Timber
 
 /**
@@ -18,7 +22,7 @@ import timber.log.Timber
  * https://developer.android.com/guide/components/processes-and-threads
  *
  */
-class DessertTimer {
+class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
 
     // The number of seconds counted since the timer started
     var secondsCount = 0
@@ -27,9 +31,18 @@ class DessertTimer {
      * [Handler] is a class meant to process a queue of messages (known as [android.os.Message]s)
      * or actions (known as [Runnable]s)
      */
-    private var handler = Handler()
+    private var handler = Handler(Looper.getMainLooper())
     private lateinit var runnable: Runnable
 
+    init {
+        // DessertTimer(LifecycleObserver)가 생성자로 주입된 DessertActivity의 lifecycle을 관찰하도록 함
+        lifecycle.addObserver(this)
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    fun dummyMethod() {
+        Timber.i("ummyMethod() called")
+    }
     fun startTimer() {
         // Create the runnable action, which prints out a log and increments the seconds counter
         runnable = Runnable {
