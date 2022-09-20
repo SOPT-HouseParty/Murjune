@@ -17,7 +17,7 @@
         android:theme="@style/Theme.SoptHousParty"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.activity_fragment_lifecycle.DessertActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
