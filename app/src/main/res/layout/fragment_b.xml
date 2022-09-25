@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.practicenav.BFragment">
+
+        <TextView
+            android:id="@+id/tv_question"
+            style="@style/NavigateButtonStyle"
+            android:layout_marginTop="100dp"
+            android:text="@string/question"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_mokdong"
+            style="@style/NavigateButtonStyle"
+            android:layout_marginBottom="60dp"
+            android:text="@string/mokdong"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_sindorim"
+            style="@style/NavigateButtonStyle"
+            android:layout_marginTop="20dp"
+            android:text="@string/sindorim"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_mokdong" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

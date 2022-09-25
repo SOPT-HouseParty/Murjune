@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_practice"
+    app:startDestination="@id/fragment_a">
+
+    <fragment
+        android:id="@+id/fragment_a"
+        android:name="com.junewon.sopthousparty.presentation.practicenav.AFragment"
+        android:label="AFragment">
+        <action
+            android:id="@+id/action_AFragment_to_BFragment"
+            app:destination="@id/fragment_b" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_b"
+        android:name="com.junewon.sopthousparty.presentation.practicenav.BFragment"
+        android:label="BFragment">
+
+        <action
+            android:id="@+id/action_fragment_b_to_successFragment"
+            app:destination="@id/successFragment"
+            app:popUpTo="@id/fragment_a"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_fragment_b_to_failFragment"
+            app:destination="@id/failFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFragment"
+        android:name="com.junewon.sopthousparty.presentation.practicenav.SuccessFragment"
+        android:label="SuccessFragment" >
+        <argument
+            android:name="mokdongData"
+            app:argType="com.junewon.sopthousparty.data.model.MokdongData" />
+    </fragment>
+    <fragment
+        android:id="@+id/failFragment"
+        android:name="com.junewon.sopthousparty.presentation.practicenav.FailFragment"
+        android:label="FailFragment">
+        <action
+            android:id="@+id/action_failFragment_to_fragment_b"
+            app:destination="@id/fragment_b"
+            app:popUpTo="@id/fragment_a" />
+    </fragment>
+
+</navigation>
