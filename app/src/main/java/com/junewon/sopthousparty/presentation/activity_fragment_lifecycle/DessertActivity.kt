@@ -40,10 +40,10 @@ class DessertActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (savedInstanceState != null) {
-            revenue = savedInstanceState.getInt(KEY_REVENUE)
-            dessertsSold = savedInstanceState.getInt(KEY_AMOUNT_SOLD)
-        }
+//        if (savedInstanceState != null) {
+//            revenue = savedInstanceState.getInt(KEY_REVENUE)
+//            dessertsSold = savedInstanceState.getInt(KEY_AMOUNT_SOLD)
+//        }
         Timber.i(" called")
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dessert)
 
@@ -70,6 +70,11 @@ class DessertActivity : AppCompatActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
+        // 여기서는 널처리 안해줘도 됨
+        revenue = savedInstanceState[KEY_REVENUE] as Int
+        dessertsSold = savedInstanceState[KEY_AMOUNT_SOLD] as Int
+        binding.revenue = revenue
+        binding.amountSold = dessertsSold
     }
 
     override fun onResume() {
