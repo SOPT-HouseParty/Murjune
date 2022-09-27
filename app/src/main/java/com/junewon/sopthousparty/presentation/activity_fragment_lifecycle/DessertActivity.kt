@@ -42,6 +42,7 @@ class DessertActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         if (savedInstanceState != null) {
             revenue = savedInstanceState.getInt(KEY_REVENUE)
+            dessertsSold = savedInstanceState.getInt(KEY_AMOUNT_SOLD)
         }
         Timber.i(" called")
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dessert)
@@ -95,7 +96,7 @@ class DessertActivity : AppCompatActivity() {
         // Bundle은 RAM에 있음
         // 100 KB 이하 메모리를 저장하는 걸 권장한다.
         outState.putInt(KEY_REVENUE, revenue)
-
+        outState.putInt(KEY_AMOUNT_SOLD, dessertsSold)
         Timber.i(" Called")
     }
 
@@ -175,6 +176,6 @@ class DessertActivity : AppCompatActivity() {
 
     companion object {
         private const val KEY_REVENUE = "key_revenue"
+        private const val KEY_AMOUNT_SOLD = "amount_sold"
     }
 }
-// defaultLifecycleobserver
