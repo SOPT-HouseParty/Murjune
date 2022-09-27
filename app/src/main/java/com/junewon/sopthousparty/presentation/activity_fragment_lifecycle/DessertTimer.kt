@@ -2,12 +2,12 @@ package com.junewon.sopthousparty.presentation.activity_fragment_lifecycle
 
 import android.os.Handler
 import android.os.Looper
+import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.LifecycleOwner
 import timber.log.Timber
 
-class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
+class DessertTimer(lifecycle: Lifecycle) : DefaultLifecycleObserver {
 
     var secondsCount = 0
 
@@ -19,12 +19,16 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         lifecycle.addObserver(this)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun dummyMethod() {
-        Timber.i(" called")
+    override fun onPause(owner: LifecycleOwner) {
+        super.onPause(owner)
+        stopTimer()
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    override fun onCreate(owner: LifecycleOwner) {
+        super.onCreate(owner)
+        startTimer()
+    }
+
     fun startTimer() {
         Timber.i(" called")
         // 참고로, Runnable 객체를 보내는 방법과 Message 객체를 보내는 방법 2가지가 있습니다.
@@ -38,7 +42,6 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         handler.postDelayed(runnable, 1000) // 1초 대기 후, runnable객체를 핸들러에 보냄~
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     fun stopTimer() {
         // Removes all pending posts of runnable from the handler's queue, effectively stopping the
         Timber.i(" called")

@@ -8,12 +8,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ShareCompat
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LifecycleObserver
 import com.junewon.sopthousparty.R
 import com.junewon.sopthousparty.databinding.ActivityDessertBinding
 import timber.log.Timber
 
-class DessertActivity : AppCompatActivity(), LifecycleObserver {
+class DessertActivity : AppCompatActivity() {
 
     private var revenue = 0
     private var dessertsSold = 0
