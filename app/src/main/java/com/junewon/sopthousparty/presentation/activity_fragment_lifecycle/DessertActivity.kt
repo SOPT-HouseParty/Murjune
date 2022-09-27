@@ -50,7 +50,7 @@ class DessertActivity : AppCompatActivity(), LifecycleObserver {
         binding.dessertButton.setOnClickListener {
             onDessertClicked()
         }
-        dessertTimer = DessertTimer(lifecycle)
+        dessertTimer = DessertTimer(lifecycle).apply { startTimer() }
         binding.revenue = revenue
         binding.amountSold = dessertsSold
         binding.dessertButton.setImageResource(currentDessert.imageId)
@@ -63,7 +63,8 @@ class DessertActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onStart() {
         super.onStart()
-        dessertTimer.startTimer()
+        // 액티비티가 백그라운드에서 다시 포그라운드로 넘어올 때마다 dessertTimer start됨
+//        dessertTimer.startTimer()
         Timber.i(" Called")
     }
 
@@ -78,12 +79,15 @@ class DessertActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onPause() {
         super.onPause()
+        // 다이얼로그를 띄워면 dessertTimer 멈춤
+        //        dessertTimer.stopTimer()
         Timber.i(" Called")
     }
 
     override fun onStop() {
         super.onStop()
-        dessertTimer.stopTimer()
+        // 다이얼로그를 띄워도 멈추지 않음, 액티비티가 백그라운드로 넘어갈 때만 dessertTimer 멈춤
+//        dessertTimer.stopTimer()
         Timber.i(" Called")
     }
 
