@@ -2,8 +2,8 @@ package com.junewon.sopthousparty.presentation.activity_fragment_lifecycle
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import com.junewon.sopthousparty.R
 import timber.log.Timber
 
@@ -13,8 +13,8 @@ class PracticeLifecycleActivity : AppCompatActivity() {
         setContentView(R.layout.activity_practice_lifecycle)
         Timber.tag("fragment").i("Activity - onCreate() called")
         supportFragmentManager.commit {
-            Timber.tag("fragment").i("add FirstFragment")
-            add<FirstFragment>(R.id.fragment_container_practice)
+            Timber.tag("fragment").i("replace FirstFragment")
+            replace<FirstFragment>(R.id.fragment_container_practice)
         }
     }
 
