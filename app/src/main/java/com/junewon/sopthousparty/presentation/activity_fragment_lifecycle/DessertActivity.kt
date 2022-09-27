@@ -50,7 +50,7 @@ class DessertActivity : AppCompatActivity(), LifecycleObserver {
         binding.dessertButton.setOnClickListener {
             onDessertClicked()
         }
-        dessertTimer = DessertTimer(lifecycle).apply { startTimer() }
+        dessertTimer = DessertTimer(lifecycle)
         binding.revenue = revenue
         binding.amountSold = dessertsSold
         binding.dessertButton.setImageResource(currentDessert.imageId)

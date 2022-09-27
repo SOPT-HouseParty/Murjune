@@ -4,6 +4,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 import timber.log.Timber
 
 class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
@@ -18,7 +19,14 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         lifecycle.addObserver(this)
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+    fun dummyMethod() {
+        Timber.i(" called")
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun startTimer() {
+        Timber.i(" called")
         // 참고로, Runnable 객체를 보내는 방법과 Message 객체를 보내는 방법 2가지가 있습니다.
         // Runnable 객체를 Handler에 보내면 대상 쓰레드(여기서는 Main 쓰레드)에서 수신한 Runnable객체의 run()이 바로 실행하도록 한다.
         runnable = Runnable {
@@ -30,9 +38,10 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         handler.postDelayed(runnable, 1000) // 1초 대기 후, runnable객체를 핸들러에 보냄~
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     fun stopTimer() {
         // Removes all pending posts of runnable from the handler's queue, effectively stopping the
-        Timber.i(" ")
+        Timber.i(" called")
         handler.removeCallbacks(runnable)
     }
 }
