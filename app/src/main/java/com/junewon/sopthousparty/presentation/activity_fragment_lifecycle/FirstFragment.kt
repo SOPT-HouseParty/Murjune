@@ -107,7 +107,7 @@ class FirstFragment : Fragment() {
     inline fun <reified F : Fragment> navigateTo(fragment: F) {
         Timber.tag("fragment").i("replace() - ${fragment.javaClass.simpleName}")
         parentFragmentManager.commit {
-//            addToBackStack(this.javaClass.name)
+            addToBackStack(this.javaClass.name)
             replace<F>(R.id.fragment_container_practice)
         }
     }
