@@ -44,7 +44,7 @@ class DessertActivity : AppCompatActivity(), LifecycleObserver {
         if (savedInstanceState != null) {
             revenue = savedInstanceState.getInt(KEY_REVENUE)
         }
-        Timber.i("onCreate() called")
+        Timber.i(" called")
         binding = DataBindingUtil.setContentView(this, R.layout.activity_dessert)
 
         binding.dessertButton.setOnClickListener {
@@ -58,12 +58,13 @@ class DessertActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onRestart() {
         super.onRestart()
-        Timber.i("onRestart() Called")
+        Timber.i(" Called")
     }
 
     override fun onStart() {
         super.onStart()
-        Timber.i("onStart() Called")
+        dessertTimer.startTimer()
+        Timber.i(" Called")
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -72,17 +73,18 @@ class DessertActivity : AppCompatActivity(), LifecycleObserver {
 
     override fun onResume() {
         super.onResume()
-        Timber.i("onResume() Called")
+        Timber.i(" Called")
     }
 
     override fun onPause() {
         super.onPause()
-        Timber.i("onPause() Called")
+        Timber.i(" Called")
     }
 
     override fun onStop() {
         super.onStop()
-        Timber.i("onStop() Called")
+        dessertTimer.stopTimer()
+        Timber.i(" Called")
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -91,12 +93,12 @@ class DessertActivity : AppCompatActivity(), LifecycleObserver {
         // 100 KB 이하 메모리를 저장하는 걸 권장한다.
         outState.putInt(KEY_REVENUE, revenue)
 
-        Timber.i("onSaveInstanceState() Called")
+        Timber.i(" Called")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Timber.i("onDestroy() Called")
+        Timber.i(" Called")
     }
 
     /**
@@ -172,3 +174,4 @@ class DessertActivity : AppCompatActivity(), LifecycleObserver {
         private const val KEY_REVENUE = "key_revenue"
     }
 }
+// defaultLifecycleobserver

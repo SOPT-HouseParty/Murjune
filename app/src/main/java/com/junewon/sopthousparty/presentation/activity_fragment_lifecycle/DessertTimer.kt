@@ -4,33 +4,12 @@ import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
 import timber.log.Timber
 
-/**
- * This is a class representing a timer that you can start or stop. The secondsCount outputs a count of
- * how many seconds since it started, every one second.
- *
- * -----
- *
- * Handler and Runnable are beyond the scope of this lesson. This is in part because they deal with
- * threading, which is a complex topic that will be covered in a later lesson.
- *
- * If you want to learn more now, you can take a look on the Android Developer documentation on
- * threading:
- *
- * https://developer.android.com/guide/components/processes-and-threads
- *
- */
 class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
 
-    // The number of seconds counted since the timer started
     var secondsCount = 0
 
-    /**
-     * [Handler] is a class meant to process a queue of messages (known as [android.os.Message]s)
-     * or actions (known as [Runnable]s)
-     */
     private var handler = Handler(Looper.getMainLooper())
     private lateinit var runnable: Runnable
 
@@ -39,31 +18,21 @@ class DessertTimer(lifecycle: Lifecycle) : LifecycleObserver {
         lifecycle.addObserver(this)
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    fun dummyMethod() {
-        Timber.i("ummyMethod() called")
-    }
     fun startTimer() {
-        // Create the runnable action, which prints out a log and increments the seconds counter
+        // 참고로, Runnable 객체를 보내는 방법과 Message 객체를 보내는 방법 2가지가 있습니다.
+        // Runnable 객체를 Handler에 보내면 대상 쓰레드(여기서는 Main 쓰레드)에서 수신한 Runnable객체의 run()이 바로 실행하도록 한다.
         runnable = Runnable {
+            // 여기가 이제 메인 쓰레드에서 수행되는 코드임
             secondsCount++
             Timber.i("Timer is at : $secondsCount")
-            // postDelayed re-adds the action to the queue of actions the Handler is cycling
-            // through. The delayMillis param tells the handler to run the runnable in
-            // 1 second (1000ms)
-            handler.postDelayed(runnable, 1000)
+            handler.postDelayed(runnable, 1000) // 이제 다시 runnable객체를 핸들러에 보냄 (Like 재귀 형식 ㅎ ㅎ)
         }
-
-        // This is what initially starts the timer
-        handler.postDelayed(runnable, 1000)
-
-        // Note that the Thread the handler runs on is determined by a class called Looper.
-        // In this case, no looper is defined, and it defaults to the main or UI thread.
+        handler.postDelayed(runnable, 1000) // 1초 대기 후, runnable객체를 핸들러에 보냄~
     }
 
     fun stopTimer() {
         // Removes all pending posts of runnable from the handler's queue, effectively stopping the
-        // timer
+        Timber.i(" ")
         handler.removeCallbacks(runnable)
     }
 }
