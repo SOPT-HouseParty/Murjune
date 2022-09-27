@@ -1,4 +1,4 @@
-package com.junewon.sopthousparty.presentation.activity_fragment_lifecycle
+package com.junewon.sopthousparty.presentation.activity_fragment_lifecycle.fragment_transaction
 
 import android.content.Context
 import android.os.Bundle

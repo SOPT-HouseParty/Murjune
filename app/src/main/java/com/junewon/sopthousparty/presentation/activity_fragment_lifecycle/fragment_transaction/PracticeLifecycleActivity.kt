@@ -1,4 +1,4 @@
-package com.junewon.sopthousparty.presentation.activity_fragment_lifecycle
+package com.junewon.sopthousparty.presentation.activity_fragment_lifecycle.fragment_transaction
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

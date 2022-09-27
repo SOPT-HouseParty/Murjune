@@ -1,8 +1,7 @@
-package com.junewon.sopthousparty.presentation.activity_fragment_lifecycle
+package com.junewon.sopthousparty.presentation.activity_fragment_lifecycle.fragment_transaction
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,12 +16,14 @@ class SecondFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        Timber.tag("fragment").i("SecondFragment - onAttach - fragment lifecycle: ${lifecycle.currentState}")
+        Timber.tag("fragment")
+            .i("SecondFragment - onAttach - fragment lifecycle: ${lifecycle.currentState}")
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Timber.tag("fragment").i("SecondFragment - onCreate - fragment lifecycle: ${lifecycle.currentState}")
+        Timber.tag("fragment")
+            .i("SecondFragment - onCreate - fragment lifecycle: ${lifecycle.currentState}")
     }
 
     override fun onCreateView(
@@ -87,12 +88,13 @@ class SecondFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        Timber.tag("fragment").i("SecondFragment - onDestroy - fragment lifecycle: ${lifecycle.currentState}")
+        Timber.tag("fragment")
+            .i("SecondFragment - onDestroy - fragment lifecycle: ${lifecycle.currentState}")
     }
 
     override fun onDetach() {
         super.onDetach()
-        Timber.tag("fragment").i("SecondFragment - onDetach - fragment lifecycle: ${lifecycle.currentState}")
+        Timber.tag("fragment")
+            .i("SecondFragment - onDetach - fragment lifecycle: ${lifecycle.currentState}")
     }
-    // defaultLifecycleobserver
 }
